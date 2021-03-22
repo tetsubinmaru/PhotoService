@@ -4,11 +4,7 @@
 
 <h2 class="user-name">@{{ user.username }}</h2>
 
-{{ user.is_superuser }}
-{% if user.is_superuser %}
-    <p>管理者</p>
-{% else %}
-    <p>一般ユーザ</p>
-{% endif %}
-
+{% for photo in photos %}
+    <img src="{{ photo.image.url }}" class="photo-img">
+{% endfor %}
 {% endblock %}

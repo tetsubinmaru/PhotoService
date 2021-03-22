@@ -9,3 +9,8 @@ def index(request):
 def users_detail(request, pk):
     user = get_object_or_404(User, pk=pk)
     return render(request, 'app/users_detail.html', {'user': user})
+
+def users_detail(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    photos = user.photo_set.all().order_by('-created_at')
+    return render(request, 'app/users_detail.html', {'user': user, 'photos': photos})
